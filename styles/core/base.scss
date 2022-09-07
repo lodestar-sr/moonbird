@@ -1,0 +1,209 @@
+@import "styles/variables";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+  color: $dark;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #cbcbcb;
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+@each $theme, $color in
+                (white, $white),
+                (black, $black),
+                (primary, $primary),
+                (success, $success),
+                (warning, $warning),
+                (gray, $gray),
+                (dark, $dark),
+                (light, $light) {
+  .text-#{$theme} {
+    color: $color !important;
+  }
+  .bg-#{$theme} {
+    background-color: $color !important;
+  }
+}
+
+.font-light {
+  font-weight: 100 !important;
+}
+.font-normal {
+  font-weight: normal !important;
+}
+.font-semibold {
+  font-weight: 500 !important;
+}
+.font-bold {
+  font-weight: bold !important;
+}
+
+.w-screen {
+  width: 100vw !important;
+}
+.h-screen {
+  height: 100vh !important;
+}
+.w-0 {
+  width: 0 !important;
+}
+.h-0 {
+  height: 0 !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+.d-inline-flex {
+  display: inline-flex !important;
+}
+.d-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.items-center {
+  align-items: center !important;
+}
+.justify-center {
+  justify-content: center !important;
+}
+.justify-between {
+  justify-content: space-between !important;
+}
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+
+.text-xs {
+  font-size: 0.75rem !important;
+}
+.text-sm {
+  font-size: 0.875rem !important;
+}
+.text-md {
+  font-size: 1rem !important;
+}
+.text-lg {
+  font-size: 1.125rem !important;
+}
+.text-xl {
+  font-size: 1.25rem !important;
+}
+.text-2xl {
+  font-size: 1.375rem !important;
+}
+.text-3xl {
+  font-size: 1.5rem !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: bold;
+}
+p {
+  margin: 0;
+}
+
+@each $unit, $size in (0, 0), (1, 0.25rem), (2, 0.5rem), (3, 1rem), (4, 1.5rem), (5, 2rem), (6, 3rem), (auto, auto) {
+  .ml-#{$unit}, .mx-#{$unit}, .m-#{$unit} {
+    margin-left: $size !important;
+  }
+  .mr-#{$unit}, .mx-#{$unit}, .m-#{$unit} {
+    margin-right: $size !important;
+  }
+  .mt-#{$unit}, .my-#{$unit}, .m-#{$unit} {
+    margin-top: $size !important;
+  }
+  .mb-#{$unit}, .my-#{$unit}, .m-#{$unit} {
+    margin-bottom: $size !important;
+  }
+
+  .pl-#{$unit}, .px-#{$unit}, .p-#{$unit} {
+    padding-left: $size !important;
+  }
+  .pr-#{$unit}, .px-#{$unit}, .p-#{$unit} {
+    padding-right: $size !important;
+  }
+  .pt-#{$unit}, .py-#{$unit}, .p-#{$unit} {
+    padding-top: $size !important;
+  }
+  .pb-#{$unit}, .py-#{$unit}, .p-#{$unit} {
+    padding-bottom: $size !important;
+  }
+}
+
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.cursor-default {
+  cursor: default !important;
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@for $i from 0 through 100 {
+  .opacity-#{$i} {
+    opacity: $i * 0.01 !important;
+  }
+}
+

@@ -1,0 +1,51 @@
+@import "styles/variables";
+
+.journey-row {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+
+  .thumbnail {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-right: 0.5rem;
+
+    .icon {
+      position: absolute;
+      padding-top: 1px;
+      padding-right: 3px;
+    }
+  }
+
+  .content-wrapper {
+    width: 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $light;
+
+    .content {
+      width: 0;
+      flex-grow: 1;
+
+      .badge {
+        color: #de9a4b;
+        background: #f5e0cc;
+        font-size: 0.6rem;
+        padding: 3px 6px;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &:last-child {
+
+    .content-wrapper {
+      border: 0;
+    }
+  }
+}

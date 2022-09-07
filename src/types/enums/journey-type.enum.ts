@@ -1,0 +1,6 @@
+export enum JOURNEY_TYPE {
+  SLEEP = 'SLEEP',
+  FOCUS = 'FOCUS',
+  HAPPY = 'HAPPY',
+  PERSONAL = 'PERSONAL',
+}

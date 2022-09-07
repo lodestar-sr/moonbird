@@ -1,0 +1,91 @@
+{
+  "name": "nextjs-graphql-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "yarn generate:schema && next dev",
+    "build": "yarn generate:schema && next build",
+    "start": "generate:schema && next start",
+    "test": "jest --passWithNoTests --testPathIgnorePatterns node_modules .next cypress",
+    "eslint:fix": "eslint --fix",
+    "prettier": "prettier -w --ignore-unknown src/**/*.{js,ts,css,scss,md}",
+    "generate:schema": "yarn build:sdl && yarn build:api",
+    "build:sdl": "ts-node --project ./tools/sdl/tsconfig.json ./tools/sdl/build-sdl.ts",
+    "build:api": "gql-gen --config codegen.yml && yarn schema:prettify",
+    "schema:prettify": "prettier --single-quote --write src/graphql/api.tsx",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.19",
+    "apollo-server-micro": "^2.25.2",
+    "class-validator": "^0.13.1",
+    "graphql": "^15.5.0",
+    "micro": "^9.3.4",
+    "next": "12",
+    "node-sass": "^6.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.1.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.4",
+    "@graphql-codegen/import-types-preset": "^1.18.1",
+    "@graphql-codegen/typescript": "^1.22.0",
+    "@graphql-codegen/typescript-operations": "^1.17.16",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.4",
+    "@graphql-codegen/typescript-resolvers": "^1.19.1",
+    "@testing-library/dom": "^8.0.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@types/react": "^17.0.6",
+    "@types/react-test-renderer": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.24.0",
+    "@typescript-eslint/parser": "^4.24.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb": "^18.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-html": "^5.0.3",
+    "eslint-plugin-import": "^2.23.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.1-alpha-7ec4c5597",
+    "graphql-codegen-apollo-next-ssr": "^1.6.1",
+    "husky": "^6.0.0",
+    "jest": "^27.0.5",
+    "jest-cli": "^27.0.5",
+    "jest-dom": "^4.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.0",
+    "react-test-renderer": "^17.0.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.4.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn eslint:fix",
+      "yarn prettier",
+      "yarn test"
+    ]
+  }
+}

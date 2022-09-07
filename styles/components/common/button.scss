@@ -1,0 +1,22 @@
+@import "styles/variables";
+
+.btn {
+  border: 0;
+  border-radius: 2rem;
+  padding: 0.3rem 1.1rem;
+  outline: none;
+  transition: all ease-in-out 0.2s;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &.btn-primary {
+    color: white;
+    background: $primary;
+
+    &:hover:not(:disabled) {
+      background: darken($primary, 5);
+    }
+  }
+}
